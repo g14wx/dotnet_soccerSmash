@@ -5,6 +5,7 @@ namespace SoccerSmash
 {
     public class HomeController: Controller
     {
+        [Route("/")]
         public ViewResult Index()
         {
             ViewBag.title = "Soccer Smash!";

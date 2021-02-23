@@ -2,10 +2,10 @@
 <html>
 <head>
     <title>@ViewBag.title</title>
-    @RenderSection("Links")
+    @RenderSection("Links", required:false)
 </head>
 <body>
 @RenderBody()
 </body>
 </html>
-@RenderSection("Scripts")
+@RenderSection("Scripts", required:false)

@@ -8,4 +8,12 @@
       <ProjectReference Include="..\EFLib\EFLib.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\css" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="srcvue\webapp\app\references.d.ts" />
+    </ItemGroup>
+
 </Project>

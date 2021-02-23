@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoccerSmash", "SoccerSmash\SoccerSmash.csproj", "{CA957BF1-9614-4ED1-8DA2-962EBC231BDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFLib", "EFLib\EFLib.csproj", "{222F9CF5-B333-4EE0-B89D-8E751A8B3842}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{CA957BF1-9614-4ED1-8DA2-962EBC231BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA957BF1-9614-4ED1-8DA2-962EBC231BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA957BF1-9614-4ED1-8DA2-962EBC231BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{222F9CF5-B333-4EE0-B89D-8E751A8B3842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222F9CF5-B333-4EE0-B89D-8E751A8B3842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222F9CF5-B333-4EE0-B89D-8E751A8B3842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222F9CF5-B333-4EE0-B89D-8E751A8B3842}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

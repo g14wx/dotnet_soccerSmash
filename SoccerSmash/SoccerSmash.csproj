@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <TypeScriptCompile Include="srcvue\webapp\app\Home\Components\HomeComponent.ts" />
       <TypeScriptCompile Include="srcvue\webapp\app\references.d.ts" />
     </ItemGroup>
 

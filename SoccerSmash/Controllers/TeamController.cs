@@ -1,23 +1,24 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using EFLib;
 using EFLib.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SoccerSmash
 {
-    public class HomeController: Controller
+    public class TeamController: Controller
     {
         private MyDbContext _db;
-        public HomeController(MyDbContext dbContext)
+        public TeamController(MyDbContext dbContext)
         {
             _db = dbContext;
         }
-        [Route("/")]
+        [HttpGet]
+        [Route("/teams")]
         public ViewResult Index()
         {
-            ViewBag.title = "Soccer Smash!";
-            return View();
+            List<Team> listTeam = _db.Teams.ToList<Team>(); 
+            return View(listTeam);
         }
     }
 }

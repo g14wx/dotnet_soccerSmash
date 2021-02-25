@@ -1,0 +1,11 @@
+
+
+@model List<Team>
+<div id="teamComponent" class="w-full">
+    <team-component :teamlist="@JsonConvert.SerializeObject(@Model)"/>
+</div>
+@section Scripts
+{
+    <script src="js/Teams.js"></script>
+    <script src="js/layout/TableFunctionality.js"></script>
+}

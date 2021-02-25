@@ -10,6 +10,7 @@ namespace EFLib.Models
     {
         [Key] public int Id { get; set; }
         public String Title{ get; set; }
+        public String Img { get; set; }
         public virtual List<LeagueHasTeams> LeagueHasTeamsList { get; set; } = new List<LeagueHasTeams>();
         public virtual Season Season { get; set; }
         public virtual List<TeamHasMatches> TeamHasMatchesList { get; set; }

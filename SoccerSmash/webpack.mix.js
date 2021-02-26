@@ -5,7 +5,8 @@ mix.autoload({
 })
 
 mix.js('srcvue/webapp/app/Home/Home.js', 'wwwroot/js').vue()
-    mix.js('srcvue/webapp/app/Teams/Teams.js','wwwroot/js').vue()
+    .js('srcvue/webapp/app/Teams/Teams.js','wwwroot/js').vue()
+    .js('srcvue/webapp/app/Teams/EditTeam.js','wwwroot/js').vue()
     .webpackConfig({
         module: {
             rules: [

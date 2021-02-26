@@ -1,4 +1,5 @@
 {
     "/wwwroot/js/Home.js": "/wwwroot/js/Home.js",
-    "/wwwroot/js/Teams.js": "/wwwroot/js/Teams.js"
+    "/wwwroot/js/Teams.js": "/wwwroot/js/Teams.js",
+    "/wwwroot/js/EditTeam.js": "/wwwroot/js/EditTeam.js"
 }

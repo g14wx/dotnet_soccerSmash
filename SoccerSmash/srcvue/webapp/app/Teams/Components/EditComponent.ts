@@ -3,56 +3,49 @@ import {Component, Vue, Prop, PropSync,} from "vue-property-decorator";
 import {ITeam, Team} from "../../../shared/model/team.model";
 import TeamForm from "./Form/TeamForm.vue";
 // @ts-ignore
-import ModalComponent from "../../../shared/Components/ModalComponent";
 import {ILeague} from "../../../shared/model/League.model";
 import Multiselect from "vue-multiselect";
+import {IPlayer} from "../../../shared/model/Player.model";
+
+import ProfileCardComponent from "../../../shared/Components/ProfileCardComponent.vue";
 @Component({
     components:{
-        TeamForm,
-        ModalComponent,
+        ProfileCardComponent,
         Multiselect
     }
 })
 export default // @ts-ignore
-class TeamComponent extends Vue {
+class EditComponent extends Vue {
     // @ts-ignore
-    @Prop() public teamlist!: ITeam[];
+    @Prop() public team!: ITeam;
     // @ts-ignore
-    @Prop() public readonly leaguelist!: ILeague[];
-    
+    @Prop() public readonly players!: IPlayer[];
+
     public SelectedTeam : ITeam = new Team(0,"","");
     // @ts-ignore
-    public get SyncTeamList() {
-        return this.teamlist;
+    public get SyncTeam() {
+        return this.team;
     }
     public show :boolean = true;
-    public set SyncTeamList(newvVal){
+    public set SyncTeam(newvVal){
         // @ts-ignore
         return newvVal;
     }
-    
+
     public deleteTeam(id:number){
         // @ts-ignore
         $axios(
             {
                 method: 'delete',
                 url: `/teams/${id}`
-            }    
+            }
         ).then((res)=> {
-            this.show = false;
-            this.teamlist.splice(this.teamlist.findIndex(t=>t.Id==id),1);
-            this.show = true;
+            window.location.href="/teams";
         }).catch(error=>{
         });
     }
-    
-    public editTeam(id: number){
-        window.location.href=`/teams/edit/${id}`;
-    }
-    
-    public newTeam(){
-        this.SelectedTeam = new Team(0,"","");
-    }
+
     mounted(){
+        alert(this.players.length);
     }
 }

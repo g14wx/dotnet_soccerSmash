@@ -21,9 +21,20 @@ namespace EFLib
         public virtual DbSet<MatchLog> MatchLogs { get; set; }
         public virtual DbSet<TeamHasMatches> TeamHasMatches { get; set; }
         public virtual DbSet<TypeMatch> TypeMatches { get; set; }
+        public virtual DbSet<University> Universities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // one to many university -> players
+            modelBuilder.Entity<University>()
+                .HasMany(u => u.Players);
+            
+            // teams -> players
+            modelBuilder.Entity<Team>()
+                .HasMany(t => t.Players);
+            modelBuilder.Entity<Position>()
+                .HasMany(p => p.Players);
+            
             // adding a primary key 
             modelBuilder.Entity<LeagueHasTeams>()
                 .HasKey(k => k.Id);

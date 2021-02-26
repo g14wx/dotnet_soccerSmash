@@ -16,9 +16,11 @@
     <ItemGroup>
       <TypeScriptCompile Include="srcvue\webapp\app\Home\Components\HomeComponent.ts" />
       <TypeScriptCompile Include="srcvue\webapp\app\references.d.ts" />
+      <TypeScriptCompile Include="srcvue\webapp\app\Teams\Components\EditComponent.ts" />
       <TypeScriptCompile Include="srcvue\webapp\app\Teams\Components\Form\TeamForm.ts" />
       <TypeScriptCompile Include="srcvue\webapp\app\Teams\Components\TeamComponent.ts" />
       <TypeScriptCompile Include="srcvue\webapp\shared\model\League.model.ts" />
+      <TypeScriptCompile Include="srcvue\webapp\shared\model\Player.model.ts" />
       <TypeScriptCompile Include="srcvue\webapp\shared\model\team.model.ts" />
     </ItemGroup>
 

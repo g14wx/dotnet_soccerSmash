@@ -65,10 +65,6 @@ function (_super) {
     return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  HomeComponent.prototype.mounted = function () {
-    alert("mounted!");
-  };
-
   HomeComponent = __decorate([vue_property_decorator_1.Component], HomeComponent);
   return HomeComponent;
 }(vue_property_decorator_1.Vue);

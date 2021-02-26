@@ -67,7 +67,7 @@
                <ul class="bg-white dark:bg-gray-800 shadow rounded py-1">
                  <li
                      @click="editTeam(team.Id)"
-                     class="modal-open cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
+                     class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                    Edit</li>
                  <li
                      @click="deleteTeam(team.Id)"

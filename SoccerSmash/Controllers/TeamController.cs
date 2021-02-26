@@ -8,6 +8,7 @@ using EFLib.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SoccerSmash.ViewModel;
 
 namespace SoccerSmash.Controllers
 {
@@ -80,6 +81,19 @@ namespace SoccerSmash.Controllers
                 ViewBag.result = $"Team {team.Title} Successfully saved!";
             }
             return new RedirectResult("/teams");
+        }
+
+        [HttpGet("/teams/edit/{id}")]
+        public ViewResult editTeam(int id)
+        {
+            Team team = _db.Teams.FirstOrDefault(t => t.Id == id);
+            List<Player> players = _db.Players.FromSqlRaw($"SELECT * FROM Player where IdTeam = {id}").Cast<Player>().ToList();
+            TeamEditViewModel tevm = new TeamEditViewModel()
+            {
+                team = team,
+                players = players
+            };
+            return View(tevm);
         }
 
         [HttpDelete("/teams/{id}")]

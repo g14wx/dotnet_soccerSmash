@@ -7,7 +7,7 @@ export default // @ts-ignore
 class TeamForm extends Vue{
 
     // @ts-ignore
-    @Model('change')  team!:ITeam;
+    @Model('change')  team!:ITeam = new Team(0,"","");
     public originalImg :String = "";
     public originalNameTeam:String = "";
     public renderForm: boolean = true;

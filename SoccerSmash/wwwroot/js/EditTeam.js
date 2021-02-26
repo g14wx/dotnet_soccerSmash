@@ -1906,14 +1906,22 @@ function (_super) {
   }
 
   profileCardComponent.prototype.mounted = function () {
-    if (this.playerList != null) {
-      this.players = this.playerList;
+    console.log("from profile card", this.innerList);
+
+    if (this.innerList != null) {
+      this.players = this.innerList;
     }
   };
 
   __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", Object)], profileCardComponent.prototype, "team", void 0);
 
-  __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", Array)], profileCardComponent.prototype, "playerList", void 0);
+  __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", Array)], profileCardComponent.prototype, "innerList", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", String)], profileCardComponent.prototype, "ftitle", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", String)], profileCardComponent.prototype, "stitle", void 0);
+
+  __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", String)], profileCardComponent.prototype, "ttitle", void 0);
 
   profileCardComponent = __decorate([vue_property_decorator_1.Component], profileCardComponent);
   return profileCardComponent;
@@ -1997,8 +2005,10 @@ function (_super) {
   function EditComponent() {
     var _this = _super !== null && _super.apply(this, arguments) || this;
 
-    _this.SelectedTeam = new team_model_1.Team(0, "", "");
+    _this.theTeam = new team_model_1.Team(0, "", "");
+    _this.showForm = false;
     _this.show = true;
+    _this.url = "";
     return _this;
   }
 
@@ -2025,8 +2035,36 @@ function (_super) {
     })["catch"](function (error) {});
   };
 
+  EditComponent.prototype.onFileChange = function (e) {
+    var file = e.target.files[0];
+    this.url = URL.createObjectURL(file);
+    this.team.Img = "changed";
+  };
+
+  EditComponent.prototype.validateForm = function (e) {
+    if (this.theTeam.Title == this.realtitle) {
+      e.preventDefault();
+    }
+  };
+
+  EditComponent.prototype.onCancel = function () {
+    this.showForm = false;
+    this.url = ""; // @ts-ignore
+
+    this.theTeam.Img = this.realImg; // @ts-ignore
+
+    this.theTeam.Title = this.realtitle;
+
+    try {
+      // @ts-ignore
+      this.$refs["fileupload"].value = null;
+    } catch (e) {}
+  };
+
   EditComponent.prototype.mounted = function () {
-    alert(this.players.length);
+    this.theTeam = this.team;
+    this.realImg = this.team.Img;
+    this.realtitle = this.team.Title;
   };
 
   __decorate([vue_property_decorator_1.Prop(), __metadata("design:type", Object)], EditComponent.prototype, "team", void 0);
@@ -2783,7 +2821,326 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("profile-card-component", {
-    attrs: { team: _vm.team, players: _vm.players }
+    attrs: { team: _vm.team, innerList: _vm.players, ftitle: "Players" },
+    scopedSlots: _vm._u([
+      {
+        key: "button",
+        fn: function() {
+          return [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-green-500 active:bg-green-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1",
+                staticStyle: { transition: "all 0.15s ease 0s" },
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    _vm.showForm = true
+                  }
+                }
+              },
+              [_vm._v("\n    Edit\n  ")]
+            )
+          ]
+        },
+        proxy: true
+      },
+      {
+        key: "body",
+        fn: function() {
+          return [
+            _vm.showForm
+              ? _c(
+                  "form",
+                  {
+                    attrs: { method: "post", action: "/teams" },
+                    on: { submit: _vm.validateForm }
+                  },
+                  [
+                    _c(
+                      "form",
+                      {
+                        staticClass: " mx-auto bg-white shadow rounded",
+                        attrs: {
+                          id: "form",
+                          method: "post",
+                          action: "/teams",
+                          enctype: "multipart/form-data"
+                        },
+                        on: { submit: _vm.validateForm }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "xl:w-full border-b border-gray-300 dark:border-gray-700 py-5"
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "flex items-center w-11/12 mx-auto"
+                              },
+                              [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "text-lg text-gray-800 dark:text-gray-100 font-bold"
+                                  },
+                                  [_vm._v("Team's Information")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.theTeam.Id,
+                                      expression: "theTeam.Id"
+                                    }
+                                  ],
+                                  attrs: { type: "hidden", name: "Id" },
+                                  domProps: { value: _vm.theTeam.Id },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.theTeam,
+                                        "Id",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.theTeam.Img,
+                                      expression: "theTeam.Img"
+                                    }
+                                  ],
+                                  attrs: { type: "hidden", name: "Img" },
+                                  domProps: { value: _vm.theTeam.Img },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.theTeam,
+                                        "Img",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "ml-2 cursor-pointer text-gray-600 dark:text-gray-400"
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          viewBox: "0 0 24 24",
+                                          width: "16",
+                                          height: "16"
+                                        }
+                                      },
+                                      [
+                                        _c("path", {
+                                          staticClass: "heroicon-ui",
+                                          attrs: {
+                                            d:
+                                              "M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-9a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1zm0-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2z",
+                                            fill: "currentColor"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "w-11/12 mx-auto" }, [
+                          _c("div", { staticClass: "container mx-auto" }, [
+                            _c(
+                              "div",
+                              { staticClass: "my-8 mx-auto xl:w-full xl:mx-0" },
+                              [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "xl:flex lg:flex md:flex flex-wrap justify-between"
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6"
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "pb-2 text-sm font-bold text-gray-800 dark:text-gray-100",
+                                            attrs: { for: "TeamsName" }
+                                          },
+                                          [_vm._v("Team's Name")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: _vm.team.Title,
+                                              expression: "team.Title"
+                                            }
+                                          ],
+                                          staticClass:
+                                            "border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none bg-transparent focus:border-indigo-700 text-gray-800 dark:text-gray-100",
+                                          attrs: {
+                                            type: "text",
+                                            name: "Title",
+                                            required: "",
+                                            id: "TeamsName",
+                                            placeholder: ""
+                                          },
+                                          domProps: { value: _vm.team.Title },
+                                          on: {
+                                            input: function($event) {
+                                              if ($event.target.composing) {
+                                                return
+                                              }
+                                              _vm.$set(
+                                                _vm.team,
+                                                "Title",
+                                                $event.target.value
+                                              )
+                                            }
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6"
+                                      },
+                                      [
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass:
+                                              "pb-2 text-sm font-bold text-gray-800 dark:text-gray-100",
+                                            attrs: { for: "ImageFile" }
+                                          },
+                                          [_vm._v("Team's Logo")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "h-16 w-16" },
+                                          [
+                                            _vm.url || _vm.theTeam.Id > 0
+                                              ? _c("img", {
+                                                  ref: "imgLoaded",
+                                                  staticClass:
+                                                    "h-full w-full rounded-full overflow-hidden shadow",
+                                                  attrs: {
+                                                    alt: "Team's img",
+                                                    id: "imgLoad",
+                                                    src:
+                                                      _vm.url.length > 0
+                                                        ? _vm.url
+                                                        : _vm.theTeam.Id > 0
+                                                        ? "/Image/" +
+                                                          _vm.theTeam.Img
+                                                        : _vm.url
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          ref: "fileupload",
+                                          attrs: {
+                                            type: "file",
+                                            name: "ImageFile",
+                                            id: "ImageFile"
+                                          },
+                                          on: { change: _vm.onFileChange }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "w-full py-4 sm:px-12 px-4 bg-gray-100 dark:bg-gray-700 mt-6 flex justify-end rounded-bl rounded-br"
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "modal-close bg-red-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm focus:outline-none mr-4",
+                                on: { click: _vm.onCancel }
+                              },
+                              [_vm._v("Cancel")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm focus:outline-none",
+                                attrs: { type: "submit" }
+                              },
+                              [_vm._v("Save")]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              : _vm._e()
+          ]
+        },
+        proxy: true
+      }
+    ])
   })
 }
 var staticRenderFns = []
@@ -2878,30 +3235,84 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(1),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "py-6 px-3 mt-32 sm:mt-0" },
+                      [_vm._t("button")],
+                      2
+                    )
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "w-full lg:w-4/12 px-4 lg:order-1" }, [
                   _c(
                     "div",
                     { staticClass: "flex justify-center py-4 lg:pt-4 pt-8" },
                     [
-                      _c("div", { staticClass: "mr-4 p-3 text-center" }, [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "text-xl font-bold block uppercase tracking-wide text-gray-700"
-                          },
-                          [_vm._v(_vm._s(_vm.players.length))]
-                        ),
-                        _c("span", { staticClass: "text-sm text-gray-500" }, [
-                          _vm._v("Players")
-                        ])
-                      ]),
+                      _vm.ftitle
+                        ? _c("div", { staticClass: "mr-4 p-3 text-center" }, [
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-xl font-bold block uppercase tracking-wide text-gray-700"
+                              },
+                              [_vm._v(_vm._s(_vm.innerList.length))]
+                            ),
+                            _c(
+                              "span",
+                              { staticClass: "text-sm text-gray-500" },
+                              [_vm._v(_vm._s(_vm.ftitle))]
+                            )
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
-                      _vm._m(2),
+                      _vm.stitle
+                        ? _c("div", { staticClass: "mr-4 p-3 text-center" }, [
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "text-xl font-bold block uppercase tracking-wide text-gray-700"
+                              },
+                              [_vm._v(_vm._s(_vm.scount))]
+                            ),
+                            _c(
+                              "span",
+                              { staticClass: "text-sm text-gray-500" },
+                              [_vm._v(_vm._s(_vm.stitle))]
+                            )
+                          ])
+                        : _vm._e(),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _vm.ttitle
+                        ? _c(
+                            "div",
+                            { staticClass: "lg:mr-4 p-3 text-center" },
+                            [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "text-xl font-bold block uppercase tracking-wide text-gray-700"
+                                },
+                                [_vm._v("89")]
+                              ),
+                              _c(
+                                "span",
+                                { staticClass: "text-sm text-gray-500" },
+                                [_vm._v(_vm._s(_vm.ttitle))]
+                              )
+                            ]
+                          )
+                        : _vm._e()
                     ]
                   )
                 ])
@@ -2923,10 +3334,26 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(1)
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "mt-10 py-10 border-t border-gray-300 text-center"
+                },
+                [
+                  _c("div", { staticClass: "flex flex-wrap justify-center" }, [
+                    _c(
+                      "div",
+                      { staticClass: "w-full lg:w-9/12 px-4" },
+                      [_vm._t("body")],
+                      2
+                    )
+                  ])
+                ]
+              )
             ])
           ]
         )
@@ -2964,64 +3391,6 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"
-      },
-      [
-        _c("div", { staticClass: "py-6 px-3 mt-32 sm:mt-0" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1",
-              staticStyle: { transition: "all 0.15s ease 0s" },
-              attrs: { type: "button" }
-            },
-            [_vm._v("\n                  Connect\n                ")]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mr-4 p-3 text-center" }, [
-      _c(
-        "span",
-        {
-          staticClass:
-            "text-xl font-bold block uppercase tracking-wide text-gray-700"
-        },
-        [_vm._v("10")]
-      ),
-      _c("span", { staticClass: "text-sm text-gray-500" }, [_vm._v("Photos")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "lg:mr-4 p-3 text-center" }, [
-      _c(
-        "span",
-        {
-          staticClass:
-            "text-xl font-bold block uppercase tracking-wide text-gray-700"
-        },
-        [_vm._v("89")]
-      ),
-      _c("span", { staticClass: "text-sm text-gray-500" }, [_vm._v("Comments")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
           "text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
       },
       [
@@ -3029,39 +3398,6 @@ var staticRenderFns = [
           staticClass: "fas fa-map-marker-alt mr-2 text-lg text-gray-500"
         }),
         _vm._v("\n              Formal Soccer Team\n            ")
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mt-10 py-10 border-t border-gray-300 text-center" },
-      [
-        _c("div", { staticClass: "flex flex-wrap justify-center" }, [
-          _c("div", { staticClass: "w-full lg:w-9/12 px-4" }, [
-            _c(
-              "p",
-              { staticClass: "mb-4 text-lg leading-relaxed text-gray-800" },
-              [
-                _vm._v(
-                  "\n                  An artist of considerable range, Jenna the name taken by\n                  Melbourne-raised, Brooklyn-based Nick Murphy writes,\n                  performs and records all of his own music, giving it a\n                  warm, intimate feel with a solid groove structure. An\n                  artist of considerable range.\n                "
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "font-normal text-pink-500",
-                attrs: { href: "#pablo" }
-              },
-              [_vm._v("Show more")]
-            )
-          ])
-        ])
       ]
     )
   }

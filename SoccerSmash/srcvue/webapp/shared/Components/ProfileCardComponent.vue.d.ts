@@ -3,7 +3,10 @@ import { ITeam } from "../model/team.model";
 import { IPlayer } from "../model/Player.model";
 export default class profileCardComponent extends Vue {
     team: ITeam;
-    playerList: IPlayer[];
+    innerList: IPlayer[];
+    ftitle: String;
+    stitle: String;
+    ttitle: String;
     players: IPlayer[];
     mounted(): void;
 }

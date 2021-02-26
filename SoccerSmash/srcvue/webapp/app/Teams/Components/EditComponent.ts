@@ -21,7 +21,10 @@ class EditComponent extends Vue {
     // @ts-ignore
     @Prop() public readonly players!: IPlayer[];
 
-    public SelectedTeam : ITeam = new Team(0,"","");
+    public theTeam : ITeam = new Team(0,"","");
+    public showForm: boolean = false;
+    public realtitle : String;
+    public realImg: String;
     // @ts-ignore
     public get SyncTeam() {
         return this.team;
@@ -45,7 +48,38 @@ class EditComponent extends Vue {
         });
     }
 
+    public url:String= "";
+    public onFileChange(e) {
+        const file = e.target.files[0];
+        this.url = URL.createObjectURL(file);
+        this.team.Img = "changed";
+    }
+   
+    public validateForm(e){
+        if(this.theTeam.Title == this.realtitle){
+            e.preventDefault();
+        }
+    }
+    
+    public onCancel(){
+        this.showForm = false;
+        this.url= "";
+        // @ts-ignore
+        this.theTeam.Img = this.realImg;
+        // @ts-ignore
+        this.theTeam.Title = this.realtitle;
+
+        try {
+            // @ts-ignore
+            this.$refs["fileupload"].value = null;
+        }catch (e){
+
+        }
+    }
+    
     mounted(){
-        alert(this.players.length);
+        this.theTeam = this.team;
+        this.realImg = this.team.Img;
+        this.realtitle = this.team.Title;
     }
 }

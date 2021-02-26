@@ -104,6 +104,12 @@ namespace SoccerSmash.Controllers
                 try
                 {
                     var team = new Team(){Id = id ?? 0};
+                    String pathImageToDelete= Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Image\\", team.Img);
+                    
+                    if(System.IO.File.Exists(pathImageToDelete))
+                    {
+                        System.IO.File.Delete(pathImageToDelete);
+                    }
                     _db.Teams.Attach(team);
                     _db.Entry(team).State = EntityState.Deleted;
                     _db.SaveChanges();

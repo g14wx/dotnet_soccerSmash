@@ -15,13 +15,18 @@ namespace EFLib
         public virtual DbSet<League> Leagues { get; set; }
         public virtual DbSet<Season> Seasons { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<ActionInMatch> ActionInMatches { get; set; }
+        public virtual DbSet<LeagueHasTeams> LeagueHasTeams { get; set; }
+        public virtual DbSet<Match> Matches { get; set; }
+        public virtual DbSet<MatchLog> MatchLogs { get; set; }
+        public virtual DbSet<TeamHasMatches> TeamHasMatches { get; set; }
+        public virtual DbSet<TypeMatch> TypeMatches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-           /* // adding a composite primary key between TeamId and LeagueId
+            // adding a primary key 
             modelBuilder.Entity<LeagueHasTeams>()
-                .HasKey(k => new {k.TeamId, k.LeagueId});
+                .HasKey(k => k.Id);
             
             // one to many Team -> LeagueHasTeams
             modelBuilder.Entity<LeagueHasTeams>()
@@ -32,9 +37,22 @@ namespace EFLib
             modelBuilder.Entity<LeagueHasTeams>()
                 .HasOne(lht => lht.League)
                 .WithMany(l => l.LeagueHasTeamsList);
-            base.OnModelCreating(modelBuilder);*/
+            base.OnModelCreating(modelBuilder);
             
-
+            
+            // adding a TeamMatches Id
+            modelBuilder.Entity<TeamHasMatches>()
+                .HasKey(thm => thm.Id);
+            
+            // one to many Team -> Thm
+            modelBuilder.Entity<TeamHasMatches>()
+                .HasOne(thm => thm.Team)
+                .WithMany(t => t.TeamHasMatchesList);
+            
+            // one to many Match
+            modelBuilder.Entity<TeamHasMatches>()
+                .HasOne(thm => thm.Match)
+                .WithMany(m => m.TeamHasMatchesList);
         }
     }
 }

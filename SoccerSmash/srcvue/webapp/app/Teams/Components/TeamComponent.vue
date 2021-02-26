@@ -1,8 +1,9 @@
 <template>
  
    <div class="mx-auto w-full container bg-white dark:bg-gray-800 dark:bg-gray-800 shadow rounded">
-     <div class="w-full ">
-       <h1 class="leading-1 text-5xl text-right mr-10 mt-16 pt-10">Teams</h1>
+     <div class="w-full flex flex-row justify-between items-center py-5 mt-16">
+         <button type="button" class="modal-open ml-5 focus:outline-none text-white text-sm py-2.5 px-5 h-1/2 border-b-4 border-green-600 rounded-md bg-green-500 hover:bg-green-400">New</button>
+       <h1 class="leading-1 text-5xl text-right mr-10  ">Teams</h1>
      </div>
      <div class="w-full">
        <table class="min-w-full bg-white dark:bg-gray-800">
@@ -34,7 +35,7 @@
          </tr>
          </thead>
          <tbody>
-         <tr v-for="team in teamlist" class="h-24 border-gray-300 border-b">
+         <tr v-for="team in SyncTeamList" v-if="show" class="h-24 border-gray-300 border-b">
            <!--<td
                class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
              <input type="checkbox"
@@ -42,20 +43,18 @@
                     onclick="tableInteract(this)" />
            </td>-->
            <td
-               class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
-             #MC10023</td>
+               class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{team.Id}}</td>
            <td
                class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
-             Toyota Motors</td>
+             {{team.Title}}</td>
            <td class="pr-6 whitespace-no-wrap">
              <div class="flex items-center">
-               <div class="h-8 w-8">
-                 <img src="https://tuk-cdn.s3.amazonaws.com/assets/components/advance_tables/at_1.png"
+               <div class="h-16 w-16">
+                 <img :src="('Image/'+team.Img)"
                       alt="" class="h-full w-full rounded-full overflow-hidden shadow" />
                </div>
                <p
-                   class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-4 text-sm">
-                 Carrie Anthony
+                   class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-7 text-sm">
                </p>
              </div>
            </td>
@@ -67,9 +66,11 @@
                  class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 hidden w-32">
                <ul class="bg-white dark:bg-gray-800 shadow rounded py-1">
                  <li
-                     class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
+                     @click="editTeam(team.Id)"
+                     class="modal-open cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                    Edit</li>
                  <li
+                     @click="deleteTeam(team.Id)"
                      class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                    Delete</li>
                  <li
@@ -94,7 +95,18 @@
          </tbody>
        </table>
      </div>
+
+     <!--#################################################### MODAL FORM #############################################-->
+     <modal-component :show-footer="false">
+      <template v-slot:title>
+        
+      </template> 
+       <template v-slot:body>
+         <team-form />
+       </template>
+     </modal-component>
    </div>
+  
 
 </template>
 

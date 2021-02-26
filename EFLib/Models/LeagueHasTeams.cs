@@ -7,7 +7,7 @@ namespace EFLib.Models
     public class LeagueHasTeams
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("leage")]
         public int LeagueId { get; set; }

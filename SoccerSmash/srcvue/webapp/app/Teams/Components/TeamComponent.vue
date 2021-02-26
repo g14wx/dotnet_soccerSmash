@@ -2,7 +2,7 @@
  
    <div class="mx-auto w-full container bg-white dark:bg-gray-800 dark:bg-gray-800 shadow rounded">
      <div class="w-full flex flex-row justify-between items-center py-5 mt-16">
-         <button type="button" class="modal-open ml-5 focus:outline-none text-white text-sm py-2.5 px-5 h-1/2 border-b-4 border-green-600 rounded-md bg-green-500 hover:bg-green-400">New</button>
+         <button type="button" class="modal-open ml-5 focus:outline-none text-white text-sm py-2.5 px-5 h-1/2 border-b-4 border-green-600 rounded-md bg-green-500 hover:bg-green-400" @click="newTeam">New</button>
        <h1 class="leading-1 text-5xl text-right mr-10  ">Teams</h1>
      </div>
      <div class="w-full">
@@ -102,7 +102,7 @@
         
       </template> 
        <template v-slot:body>
-         <team-form />
+         <team-form v-model="SelectedTeam" />
        </template>
      </modal-component>
    </div>

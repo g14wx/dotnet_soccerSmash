@@ -19,6 +19,8 @@ class TeamComponent extends Vue {
     @Prop() public teamlist!: ITeam[];
     // @ts-ignore
     @Prop() public readonly leaguelist!: ILeague[];
+    
+    public SelectedTeam : ITeam = new Team(0,"","");
     // @ts-ignore
     public get SyncTeamList() {
         return this.teamlist;
@@ -42,6 +44,17 @@ class TeamComponent extends Vue {
             this.show = true;
         }).catch(error=>{
         });
+    }
+    
+    public editTeam(id: number){
+        this.SelectedTeam = null;
+        var team : ITeam = this.teamlist.find(t => t.Id = id);
+        this.SelectedTeam = team;
+        console.log("from team component: ",this.SelectedTeam.Id);
+    }
+    
+    public newTeam(){
+        this.SelectedTeam = new Team(0,"","");
     }
     mounted(){
     }

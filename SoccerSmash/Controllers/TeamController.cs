@@ -35,31 +35,30 @@ namespace SoccerSmash.Controllers
             if (team.Id > 0)
             {
                 // delete image
-                Team foundTeam = _db.Teams.First(t => t.Id == team.Id );
-                if (foundTeam.Img != team.Img)
+                if (team.ImageFile is not null)
                 {
                     // mistmatch so isn't the same img
-                    String pathImageToDelete= Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Image\\", foundTeam.Img);
+                    String pathImageToDelete= Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Image\\", team.Img);
                     
                     if(System.IO.File.Exists(pathImageToDelete))
                     {
                         System.IO.File.Delete(pathImageToDelete);
                     } 
-                }
-                //Save image to wwwroot/image
+                    //Save image to wwwroot/image
                 
-                string wwwRootPath = _hostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(team.ImageFile.FileName);
-                string extension = Path.GetExtension(team.ImageFile.FileName);
-                team.Img=fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
-                using (var fileStream = new FileStream(path,FileMode.Create))
-                {
-                    await team.ImageFile.CopyToAsync(fileStream);
+                    string wwwRootPath = _hostEnvironment.WebRootPath;
+                    string fileName = Path.GetFileNameWithoutExtension(team.ImageFile.FileName);
+                    string extension = Path.GetExtension(team.ImageFile.FileName);
+                    team.Img=fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                    using (var fileStream = new FileStream(path,FileMode.Create))
+                    {
+                        await team.ImageFile.CopyToAsync(fileStream);
+                    }
                 }
+              
                 // UPDATE
-                _db.Teams.Update(team);
-                _db.SaveChanges();
+                _db.Update(team);
                 ViewBag.result = $"Team {team.Title} Was Successfully updated!";
             }
             else
@@ -77,9 +76,10 @@ namespace SoccerSmash.Controllers
                 }
                 //Insert record
                 _db.Teams.Add(team);
-                _db.SaveChanges();
                 ViewBag.result = $"Team {team.Title} Successfully saved!";
             }
+            
+            _db.SaveChanges();
             return new RedirectResult("/teams");
         }
 
@@ -103,7 +103,7 @@ namespace SoccerSmash.Controllers
             {
                 try
                 {
-                    var team = new Team(){Id = id ?? 0};
+                    var team = _db.Teams.Find(id);
                     String pathImageToDelete= Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Image\\", team.Img);
                     
                     if(System.IO.File.Exists(pathImageToDelete))
@@ -117,6 +117,7 @@ namespace SoccerSmash.Controllers
                 }
                 catch (Exception e)
                 {
+                    throw e;
                     return BadRequest($"Something went wrong trying to delete the team with id {id}");
                 }
             }

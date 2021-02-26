@@ -2038,12 +2038,13 @@ function (_super) {
   EditComponent.prototype.onFileChange = function (e) {
     var file = e.target.files[0];
     this.url = URL.createObjectURL(file);
-    this.team.Img = "changed";
   };
 
   EditComponent.prototype.validateForm = function (e) {
     if (this.theTeam.Title == this.realtitle) {
-      e.preventDefault();
+      if (this.url.length == 0) {
+        e.preventDefault();
+      }
     }
   };
 
@@ -3013,8 +3014,8 @@ var render = function() {
                                             {
                                               name: "model",
                                               rawName: "v-model",
-                                              value: _vm.team.Title,
-                                              expression: "team.Title"
+                                              value: _vm.theTeam.Title,
+                                              expression: "theTeam.Title"
                                             }
                                           ],
                                           staticClass:
@@ -3026,14 +3027,16 @@ var render = function() {
                                             id: "TeamsName",
                                             placeholder: ""
                                           },
-                                          domProps: { value: _vm.team.Title },
+                                          domProps: {
+                                            value: _vm.theTeam.Title
+                                          },
                                           on: {
                                             input: function($event) {
                                               if ($event.target.composing) {
                                                 return
                                               }
                                               _vm.$set(
-                                                _vm.team,
+                                                _vm.theTeam,
                                                 "Title",
                                                 $event.target.value
                                               )

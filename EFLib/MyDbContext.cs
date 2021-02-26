@@ -31,6 +31,8 @@ namespace EFLib
             
             // teams -> players
             modelBuilder.Entity<Team>()
+                .HasKey(t => t.Id);
+            modelBuilder.Entity<Team>()
                 .HasMany(t => t.Players);
             modelBuilder.Entity<Position>()
                 .HasMany(p => p.Players);

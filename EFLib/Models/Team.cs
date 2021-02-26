@@ -13,7 +13,7 @@ namespace EFLib.Models
     [Table("Team")]
     public class Team
     {
-        [Key] public int Id { get; set; }
+       public int Id { get; set; }
         public String Title{ get; set; }
         public String Img { get; set; }
         

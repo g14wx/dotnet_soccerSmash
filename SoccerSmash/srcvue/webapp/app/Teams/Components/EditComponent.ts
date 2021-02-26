@@ -52,12 +52,14 @@ class EditComponent extends Vue {
     public onFileChange(e) {
         const file = e.target.files[0];
         this.url = URL.createObjectURL(file);
-        this.team.Img = "changed";
     }
    
     public validateForm(e){
         if(this.theTeam.Title == this.realtitle){
-            e.preventDefault();
+            if(this.url.length == 0){
+                
+                e.preventDefault();
+            }
         }
     }
     

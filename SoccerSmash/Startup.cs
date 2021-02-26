@@ -27,7 +27,7 @@ namespace SoccerSmash
             services.AddMvc(options => options.EnableEndpointRouting = false);
             // adding MyAppDbContext as a service
             String connection = _configuration.GetConnectionString("SQLiteConnectionString");
-            services.AddDbContext<MyDbContext>(options=>options.UseSqlite(connection));
+            services.AddDbContext<MyDbContext>(options=>options.UseSqlite(connection),ServiceLifetime.Scoped);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

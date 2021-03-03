@@ -22,6 +22,7 @@ namespace EFLib
         public virtual DbSet<TeamHasMatches> TeamHasMatches { get; set; }
         public virtual DbSet<TypeMatch> TypeMatches { get; set; }
         public virtual DbSet<University> Universities { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

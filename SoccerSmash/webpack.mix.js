@@ -7,6 +7,8 @@ mix.autoload({
 mix.js('srcvue/webapp/app/Home/Home.js', 'wwwroot/js').vue()
     .js('srcvue/webapp/app/Teams/Teams.js','wwwroot/js').vue()
     .js('srcvue/webapp/app/Teams/EditTeam.js','wwwroot/js').vue()
+    .js('srcvue/webapp/app/Universities/EditUni.js','wwwroot/js').vue()
+    .js('srcvue/webapp/app/Universities/Universities.js','wwwroot/js').vue()
     .webpackConfig({
         module: {
             rules: [

@@ -1,5 +1,7 @@
 {
     "/wwwroot/js/Home.js": "/wwwroot/js/Home.js",
     "/wwwroot/js/Teams.js": "/wwwroot/js/Teams.js",
-    "/wwwroot/js/EditTeam.js": "/wwwroot/js/EditTeam.js"
+    "/wwwroot/js/EditTeam.js": "/wwwroot/js/EditTeam.js",
+    "/wwwroot/js/EditUni.js": "/wwwroot/js/EditUni.js",
+    "/wwwroot/js/Universities.js": "/wwwroot/js/Universities.js"
 }

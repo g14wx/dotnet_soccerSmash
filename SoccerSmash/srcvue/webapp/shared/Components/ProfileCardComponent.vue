@@ -91,8 +91,11 @@
                 <i
                     class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"
                 ></i>
-                Formal Soccer Team
+                <slot name="subtitle">
+                  
+                </slot>
               </div>
+              <slot name="loadMultiselect"></slot>
               <!--<div class="mb-2 text-gray-700 mt-10">
                 <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
                 >Solution Manager - Creative Tim Officer

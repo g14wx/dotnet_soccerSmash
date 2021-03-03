@@ -1,0 +1,8 @@
+@model List<University>
+<div id="teamComponent" class="w-full">
+    <university-component :universities="@JsonConvert.SerializeObject(@Model)" />
+</div>
+@section Scripts
+{
+    <script src="js/Universities.js"></script>
+}

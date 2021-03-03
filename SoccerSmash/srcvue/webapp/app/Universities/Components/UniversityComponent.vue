@@ -3,7 +3,7 @@
    <div class="mx-auto w-full container bg-white dark:bg-gray-800 dark:bg-gray-800 shadow rounded">
      <div class="w-full flex flex-row justify-between items-center py-5 mt-16">
          <button type="button" class="modal-open ml-5 focus:outline-none text-white text-sm py-2.5 px-5 h-1/2 border-b-4 border-green-600 rounded-md bg-green-500 hover:bg-green-400" @click="newTeam">New</button>
-       <h1 class="leading-1 text-5xl text-right mr-10  ">Teams</h1>
+       <h1 class="leading-1 text-5xl text-right mr-10  ">Universidades</h1>
      </div>
      <div class="w-full">
        <table class="min-w-full bg-white dark:bg-gray-800">
@@ -21,9 +21,7 @@
            <th
                class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
              Team's Name</th>
-           <th
-               class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
-             Logo</th>
+           
 
            <th
                class="text-gray-600 dark:text-gray-400 font-normal pr-6 text-left text-sm tracking-normal leading-4">
@@ -35,7 +33,7 @@
          </tr>
          </thead>
          <tbody>
-         <tr v-for="team in SyncTeamList" v-if="show" class="h-24 border-gray-300 border-b">
+         <tr v-for="university in SyncTeamList" v-if="show" class="h-24 border-gray-300 border-b">
            <!--<td
                class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">
              <input type="checkbox"
@@ -43,21 +41,11 @@
                     onclick="tableInteract(this)" />
            </td>-->
            <td
-               class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{team.Id}}</td>
+               class="pl-8 pr-6 text-left whitespace-no-wrap text-sm text-gray-800 dark:text-gray-100 tracking-normal leading-4">{{university.Id}}</td>
            <td
                class="text-sm pr-6 whitespace-no-wrap text-gray-800 dark:text-gray-100 tracking-normal leading-4">
-             {{team.Title}}</td>
-           <td class="pr-6 whitespace-no-wrap">
-             <div class="flex items-center">
-               <div class="h-16 w-16">
-                 <img :src="('Image/'+team.Img)"
-                      alt="" class="h-full w-full rounded-full overflow-hidden shadow" />
-               </div>
-               <p
-                   class="ml-2 text-gray-800 dark:text-gray-100 tracking-normal leading-7 text-sm">
-               </p>
-             </div>
-           </td>
+             {{university.Title}}</td>
+          
            <td class="pr-6">
              <div class="w-2 h-2 rounded-full bg-indigo-400"></div>
            </td>
@@ -66,11 +54,11 @@
                  class="dropdown-content mt-8 absolute left-0 -ml-12 shadow-md z-10 hidden w-32">
                <ul class="bg-white dark:bg-gray-800 shadow rounded py-1">
                  <li
-                     @click="editTeam(team.Id)"
+                     @click="editTeam(university.Id)"
                      class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                    Edit</li>
                  <li
-                     @click="deleteTeam(team.Id)"
+                     @click="deleteTeam(university.Id)"
                      class="cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal">
                    Delete</li>
                </ul>
@@ -99,7 +87,7 @@
         
       </template> 
        <template v-slot:body>
-         <team-form v-model="SelectedTeam" />
+         <team-form />
        </template>
      </modal-component>
    </div>
@@ -107,5 +95,5 @@
 
 </template>
 
-<script src="./TeamComponent.ts">
+<script src="./UniversityComponent.ts">
 </script>

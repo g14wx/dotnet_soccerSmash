@@ -1,0 +1,10 @@
+
+@model TeamEditViewModel
+
+<div id="EditComponent" class="w-full">
+    <edit-component :team="@JsonConvert.SerializeObject(@Model.team)" :players="@JsonConvert.SerializeObject(@Model.players)" :teamplayers="@JsonConvert.SerializeObject(@Model.TeamPlayers)"/>
+</div>
+@section Scripts
+{
+    <script  asp-src-include="js/EditTeam.js"></script>
+}

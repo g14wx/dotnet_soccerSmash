@@ -3849,15 +3849,6 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("\n                Delete")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "li",
-                                {
-                                  staticClass:
-                                    "cursor-pointer text-gray-600 dark:text-gray-400 text-sm leading-3 tracking-normal py-3 hover:bg-indigo-700 hover:text-white px-3 font-normal"
-                                },
-                                [_vm._v("\n                Duplicate")]
                               )
                             ]
                           )

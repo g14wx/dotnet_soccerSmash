@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
 namespace EFLib.Models
@@ -29,5 +30,7 @@ namespace EFLib.Models
         [ForeignKey("Position")]
         public int IdPosition { get; set; }
         public Position Position { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
     }
 }

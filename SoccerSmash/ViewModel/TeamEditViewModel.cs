@@ -14,5 +14,7 @@ namespace SoccerSmash.ViewModel
         [JsonIgnore] 
         [IgnoreDataMember] 
         public List<Player> players { get; set; }
+        
+        public List<Player> TeamPlayers { get; set; }
     }
 }

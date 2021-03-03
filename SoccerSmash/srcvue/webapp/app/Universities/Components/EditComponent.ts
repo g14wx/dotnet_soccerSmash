@@ -58,16 +58,16 @@ class EditComponent extends Vue {
         const file = e.target.files[0];
         this.url = URL.createObjectURL(file);
     }
-   
+
     public validateForm(e){
         if(this.theTeam.Title == this.realtitle){
             if(this.url.length == 0){
-                
+
                 e.preventDefault();
             }
         }
     }
-    
+
     public onCancel(){
         this.showForm = false;
         this.url= "";
@@ -83,10 +83,11 @@ class EditComponent extends Vue {
 
         }
     }
-    
+
     mounted(){
         this.teamPlayers = this.teamplayers;
         this.theTeam = this.team;
+        this.realImg = this.team.Img;
         this.realtitle = this.team.Title;
     }
 }

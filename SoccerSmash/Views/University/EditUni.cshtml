@@ -1,0 +1,9 @@
+@model University
+
+<div id="EditComponent" class="w-full">
+    <edit-component :team="@JsonConvert.SerializeObject(@Model)" />
+</div>
+@section Scripts
+{
+    <script  asp-src-include="js/EditUni.js"></script>
+}

@@ -83,14 +83,35 @@ namespace SoccerSmash.Controllers
             return new RedirectResult("/teams");
         }
 
+        [HttpPost("/teams/edit/{id}")]
+        public RedirectResult editTeamPlayers(int id,List<Player> players)
+        {
+            Team team = _db.Teams.Find(id);
+            List<Player> playersInTeam = _db.Players.Where(p => p.IdTeam == team.Id).ToList();
+            if (playersInTeam.Count > 0)
+            {
+                team.Players = players;
+            }
+            _db.SaveChanges();
+            if (players.Count > 0)
+            {
+                team.Players.AddRange(players);
+                _db.SaveChanges();
+            }
+            
+            return new RedirectResult($"/teams");
+        }
+        
         [HttpGet("/teams/edit/{id}")]
         public ViewResult editTeam(int id)
         {
             Team team = _db.Teams.FirstOrDefault(t => t.Id == id);
-            List<Player> players = _db.Players.FromSqlRaw($"SELECT * FROM Player where IdTeam = {id}").Cast<Player>().ToList();
+            List<Player> playersInTeam = _db.Players.FromSqlRaw($"SELECT * FROM Player where IdTeam = {id}").Cast<Player>().ToList();
+            List<Player> players = _db.Players.ToList().Where(p=>p.IdTeam <= 0).ToList();
             TeamEditViewModel tevm = new TeamEditViewModel()
             {
                 team = team,
+                TeamPlayers = playersInTeam,
                 players = players
             };
             return View(tevm);

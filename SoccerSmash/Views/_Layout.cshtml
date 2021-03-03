@@ -5,6 +5,7 @@
  <head>
      <title>@ViewBag.title</title>
      <link rel="stylesheet" asp-href-include="css/style.css">
+     <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
     @RenderSection("Links", required:false)
  </head>
  <body class="h-full w-full flex flex-col justify-center items-center">
@@ -88,7 +89,7 @@
                         <div class="w-2/5 hidden xl:flex items-center justify-center sm:items-stretch sm:justify-start">
                             <div class="">
                                 <div class="hidden xl:flex">
-                                    <a href="javascript: void(0)" class="py-6 pr-6 block text-sm leading-5 text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">
+                                    <a href="/" class="py-6 pr-6 block text-sm leading-5 text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">
                                         <span>Soccer Smash!</span>
                                     </a>
                                    <!-- <a href="javascript: void(0)" class="ml-10 items-center flex py-6 text-sm leading-5 text-gray-700 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out relative" onclick="dropdownHandler(this)">

@@ -1,4 +1,4 @@
 <template>
-  <h1>HOME COMPONENT</h1>
+  <h1 class="mt-10">Soccer Smash</h1>
 </template>
 <script lang="ts" src="./HomeComponent.ts"></script>

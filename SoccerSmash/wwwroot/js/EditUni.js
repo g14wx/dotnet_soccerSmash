@@ -1931,10 +1931,10 @@ exports.default = profileCardComponent;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2068,6 +2068,7 @@ function (_super) {
   EditComponent.prototype.mounted = function () {
     this.teamPlayers = this.teamplayers;
     this.theTeam = this.team;
+    this.realImg = this.team.Img;
     this.realtitle = this.team.Title;
   };
 
@@ -2652,10 +2653,10 @@ Component.registerHooks = function registerHooks(keys) {
 
 /***/ }),
 
-/***/ "./srcvue/webapp/app/Teams/Components/EditComponent.vue":
-/*!**************************************************************!*\
-  !*** ./srcvue/webapp/app/Teams/Components/EditComponent.vue ***!
-  \**************************************************************/
+/***/ "./srcvue/webapp/app/Universities/Components/EditComponent.vue":
+/*!*********************************************************************!*\
+  !*** ./srcvue/webapp/app/Universities/Components/EditComponent.vue ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2663,8 +2664,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true& */ "./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true&");
-/* harmony import */ var _EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditComponent.ts?vue&type=script&lang=js& */ "./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js&");
+/* harmony import */ var _EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true& */ "./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true&");
+/* harmony import */ var _EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditComponent.ts?vue&type=script&lang=js& */ "./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js&");
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
@@ -2678,18 +2679,18 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "0bb9d1c4",
+  "d89e4b88",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "srcvue/webapp/app/Teams/Components/EditComponent.vue"
+component.options.__file = "srcvue/webapp/app/Universities/Components/EditComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -2736,10 +2737,10 @@ component.options.__file = "srcvue/webapp/shared/Components/ProfileCardComponent
 
 /***/ }),
 
-/***/ "./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2747,7 +2748,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./EditComponent.ts?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Teams/Components/EditComponent.ts?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./EditComponent.ts?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/ts-loader/index.js??clonedRuleSet-21[0].rules[0]!./srcvue/webapp/app/Universities/Components/EditComponent.ts?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_ts_loader_index_js_clonedRuleSet_21_0_rules_0_EditComponent_ts_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
@@ -2776,19 +2777,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true&":
-/*!*********************************************************************************************************!*\
-  !*** ./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true& ***!
-  \*********************************************************************************************************/
+/***/ "./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true&":
+/*!****************************************************************************************************************!*\
+  !*** ./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true& ***!
+  \****************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_0bb9d1c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditComponent_vue_vue_type_template_id_d89e4b88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true&");
 
 
 /***/ }),
@@ -2810,10 +2811,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Teams/Components/EditComponent.vue?vue&type=template&id=0bb9d1c4&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./srcvue/webapp/app/Universities/Components/EditComponent.vue?vue&type=template&id=d89e4b88&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2827,7 +2828,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("profile-card-component", {
-    attrs: { team: _vm.team, innerList: _vm.teamPlayers, ftitle: "Players" },
+    attrs: { team: _vm.team },
     scopedSlots: _vm._u([
       {
         key: "button",
@@ -2871,7 +2872,7 @@ var render = function() {
                         attrs: {
                           id: "form",
                           method: "post",
-                          action: "/teams",
+                          action: "/universities",
                           enctype: "multipart/form-data"
                         },
                         on: { submit: _vm.validateForm }
@@ -2896,7 +2897,7 @@ var render = function() {
                                     staticClass:
                                       "text-lg text-gray-800 dark:text-gray-100 font-bold"
                                   },
-                                  [_vm._v("Team's Information")]
+                                  [_vm._v("Universiy's Information")]
                                 ),
                                 _vm._v(" "),
                                 _c("input", {
@@ -2918,31 +2919,6 @@ var render = function() {
                                       _vm.$set(
                                         _vm.theTeam,
                                         "Id",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.theTeam.Img,
-                                      expression: "theTeam.Img"
-                                    }
-                                  ],
-                                  attrs: { type: "hidden", name: "Img" },
-                                  domProps: { value: _vm.theTeam.Img },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.$set(
-                                        _vm.theTeam,
-                                        "Img",
                                         $event.target.value
                                       )
                                     }
@@ -3011,7 +2987,7 @@ var render = function() {
                                               "pb-2 text-sm font-bold text-gray-800 dark:text-gray-100",
                                             attrs: { for: "TeamsName" }
                                           },
-                                          [_vm._v("Team's Name")]
+                                          [_vm._v("University's Name")]
                                         ),
                                         _vm._v(" "),
                                         _c("input", {
@@ -3047,60 +3023,6 @@ var render = function() {
                                               )
                                             }
                                           }
-                                        })
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "xl:w-2/5 lg:w-2/5 md:w-2/5 flex flex-col mb-6"
-                                      },
-                                      [
-                                        _c(
-                                          "label",
-                                          {
-                                            staticClass:
-                                              "pb-2 text-sm font-bold text-gray-800 dark:text-gray-100",
-                                            attrs: { for: "ImageFile" }
-                                          },
-                                          [_vm._v("Team's Logo")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          { staticClass: "h-16 w-16" },
-                                          [
-                                            _vm.url || _vm.theTeam.Id > 0
-                                              ? _c("img", {
-                                                  ref: "imgLoaded",
-                                                  staticClass:
-                                                    "h-full w-full rounded-full overflow-hidden shadow",
-                                                  attrs: {
-                                                    alt: "Team's img",
-                                                    id: "imgLoad",
-                                                    src:
-                                                      _vm.url.length > 0
-                                                        ? _vm.url
-                                                        : _vm.theTeam.Id > 0
-                                                        ? "/Image/" +
-                                                          _vm.theTeam.Img
-                                                        : _vm.url
-                                                  }
-                                                })
-                                              : _vm._e()
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("input", {
-                                          ref: "fileupload",
-                                          attrs: {
-                                            type: "file",
-                                            name: "ImageFile",
-                                            id: "ImageFile"
-                                          },
-                                          on: { change: _vm.onFileChange }
                                         })
                                       ]
                                     )
@@ -3151,91 +3073,7 @@ var render = function() {
       {
         key: "subtitle",
         fn: function() {
-          return [_vm._v("\n    FORMAL SOCCER TEAM\n  ")]
-        },
-        proxy: true
-      },
-      {
-        key: "loadMultiselect",
-        fn: function() {
-          return [
-            _c(
-              "div",
-              _vm._l(_vm.teamPlayers, function(player) {
-                return _c("div", { staticClass: "inline-block my-7" }, [
-                  _c(
-                    "div",
-                    { staticClass: "bg-gray-900 shadow-lg rounded p-3 w-56 " },
-                    [
-                      _c("div", { staticClass: "group relative" }, [
-                        _c("img", {
-                          staticClass: "w-full md:w-72 block rounded",
-                          attrs: { src: "/Image/" + player.Img, alt: "" }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "group relative" }, [
-                          _c(
-                            "form",
-                            {
-                              attrs: {
-                                method: "post",
-                                action: "/player/delete/" + player.Id
-                              }
-                            },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition",
-                                  attrs: { type: "submit" }
-                                },
-                                [
-                                  _c(
-                                    "svg",
-                                    {
-                                      attrs: {
-                                        xmlns: "http://www.w3.org/2000/svg",
-                                        width: "20",
-                                        height: "20",
-                                        viewBox: "0 0 20 20",
-                                        fill: "red"
-                                      }
-                                    },
-                                    [
-                                      _c("path", {
-                                        attrs: {
-                                          "fill-rule": "evenodd",
-                                          d:
-                                            "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
-                                          "clip-rule": "evenodd"
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "p-5" }, [
-                        _c("h3", { staticClass: "text-white text-lg" }, [
-                          _vm._v(_vm._s(player.Name))
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "text-gray-400" }, [
-                          _vm._v(_vm._s(player.NShirt))
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              }),
-              0
-            )
-          ]
+          return [_vm._v("\n    FORMAL UNIVERSITY\n  ")]
         },
         proxy: true
       }
@@ -16346,12 +16184,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!*********************************************!*\
-  !*** ./srcvue/webapp/app/Teams/EditTeam.js ***!
-  \*********************************************/
+/*!***************************************************!*\
+  !*** ./srcvue/webapp/app/Universities/EditUni.js ***!
+  \***************************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var _Components_EditComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/EditComponent */ "./srcvue/webapp/app/Teams/Components/EditComponent.vue");
+/* harmony import */ var _Components_EditComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/EditComponent */ "./srcvue/webapp/app/Universities/Components/EditComponent.vue");
 
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
